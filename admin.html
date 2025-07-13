@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin - Kagiso Job Board</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Admin Dashboard</h1>
+    <div id="loginDiv">
+      <input type="password" id="adminPass" placeholder="Admin Password" />
+      <button onclick="checkAdmin()">Login</button>
+    </div>
+    <div id="adminArea" style="display:none;">
+      <button onclick="logout()">Logout</button>
+      <h2>All Job Listings</h2>
+      <table>
+        <thead>
+          <tr><th>Title</th><th>Desc</th><th>Contact</th><th>Cat</th><th>Area</th><th>Date</th><th>Status</th><th>Reports</th><th>Actions</th></tr>
+        </thead>
+        <tbody id="adminJobsTable"></tbody>
+      </table>
+    </div>
+  </div>
+  <script>
+    const correctHash = "a4f9d1bb5dfd2d7e6a8f3e8e273cfedfeac0c524b63d8b92809291f74c960223";
+    function checkAdmin() {
+      const pw = document.getElementById('adminPass').value;
+      crypto.subtle.digest('SHA-256', new TextEncoder().encode(pw)).then(buf => {
+        let hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join('');
+        if (hash === correctHash) {
+          localStorage.setItem('isAdmin', '1');
+          document.getElementById('loginDiv').style.display = 'none';
+          document.getElementById('adminArea').style.display = 'block';
+          renderAdminJobs();
+        } else {
+          alert("Incorrect password");
+        }
+      });
+    }
+    function logout() {
+      localStorage.removeItem('isAdmin');
+      location.reload();
+    }
+    if(localStorage.getItem('isAdmin')) {
+      document.getElementById('loginDiv').style.display = 'none';
+      document.getElementById('adminArea').style.display = 'block';
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

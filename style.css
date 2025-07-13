@@ -1,0 +1,145 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  padding: 10px;
+}
+
+h1, h2, h3 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+input, textarea, select, button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: box-shadow 0.2s, background 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+  box-shadow: 0 0 5px rgba(43,122,120,0.6);
+  outline: none;
+}
+
+button {
+  background: #2b7a78;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+  background: #3a9b96;
+  transform: scale(1.02);
+}
+
+/* Job cards */
+.job-card {
+  background: white;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Admin table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+}
+tr:hover {
+  background: #e8f6f5;
+}
+
+/* Login/admin card */
+#loginDiv, #adminArea {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 15px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Disclaimer box */
+.disclaimer {
+  background: #f9fafc;
+  color: #333;
+  border-left: 6px solid #2b7a78;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+/* Big dashboard link */
+a.btn-link, a.big-link {
+  display: block;
+  width: fit-content;
+  margin: 20px auto;
+  background: #2b7a78;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: background 0.3s, transform 0.2s;
+}
+a.btn-link:hover, a.big-link:hover {
+  background: #3a9b96;
+  transform: scale(1.05);
+}
+
+/* Dark mode */
+.dark {
+  background: #121212;
+  color: #ddd;
+}
+.dark .job-card {
+  background: #1e1e1e;
+  box-shadow: 0 4px 12px rgba(255,255,255,0.05);
+}
+.dark button {
+  background: #444;
+}
+.dark input, .dark textarea, .dark select {
+  background: #2a2a2a;
+  color: #ddd;
+  border: 1px solid #555;
+}
+.dark .disclaimer {
+  background: #1c1c1c;
+  border-left-color: #9fe8e5;
+  color: #ddd;
+}
+.dark table {
+  color: #ddd;
+}
+.dark tr:hover {
+  background: #1e3d3c;
+}

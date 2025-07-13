@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kagiso Local Job Board</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Kagiso Local Job Board</h1>
+
+    <a href="admin.html" class="btn-link big-link">🛠️ Go to Admin Dashboard</a>
+
+    <div class="disclaimer">
+      ⚠ Please be cautious when contacting posters. This is a local community job board for Kagiso. Always meet in safe, public places.
+    </div>
+
+    <form id="jobForm">
+      <input name="title" required placeholder="Job Title" />
+      <textarea name="description" required placeholder="Description"></textarea>
+      <input name="contact" required placeholder="Contact Info" />
+      <select name="category" required>
+        <option value="">Select Category</option>
+        <option>Retail</option><option>Construction</option><option>Cleaning</option>
+        <option>Admin</option><option>Plumbing</option><option>Other</option>
+      </select>
+      <select name="area" required>
+        <option value="">Select Area</option>
+        <option>Kagiso Ext 2</option><option>Munsieville</option><option>Krugersdorp CBD</option>
+      </select>
+      <input type="hidden" name="email_confirm" />
+      <button type="submit">Post Job</button>
+    </form>
+
+    <button id="toggleDarkMode">Toggle Theme 🌙</button>
+
+    <h2>Available Jobs</h2>
+    <div id="jobs"></div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+</body>
+</html>
